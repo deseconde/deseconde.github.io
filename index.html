@@ -218,21 +218,104 @@
   .btn-phone{background:transparent;color:var(--ink);border:1.5px solid var(--gold-line);}
   .btn-phone:hover{border-color:var(--gold);background:rgba(201,168,76,0.08);box-shadow:none;}
 
-  /* ---------- Ambience bento ---------- */
-  .ambience{padding:44px 0 8px;}
-  .ambience-head{max-width:680px;margin:0 auto 22px;padding:0 20px;text-align:center;}
+  /* ---------- Ambience mosaic ---------- */
+  .ambience{padding:44px 20px 8px;}
+  .ambience-head{max-width:680px;margin:0 auto 26px;text-align:center;}
+  .ambience-sub{
+    font-family:'Cormorant Garamond',serif;font-style:italic;font-size:16.5px;line-height:1.55;
+    color:var(--ink-soft);max-width:460px;margin:14px auto 0;
+  }
   .bento{
-    max-width:1000px;margin:0 auto;padding:0 20px 8px;display:grid;
-    grid-template-columns:repeat(4,1fr);gap:10px;
+    max-width:1060px;margin:0 auto;display:grid;gap:12px;
+    grid-template-columns:repeat(12,1fr);grid-template-rows:repeat(11,1fr);
+    aspect-ratio:8/7;
   }
-  .bento img{
-    width:100%;aspect-ratio:3/4;object-fit:cover;border-radius:10px;box-shadow:var(--shadow);
-    transition:transform .35s ease;cursor:pointer;
+  .b-tile{
+    position:relative;overflow:hidden;border-radius:12px;min-width:0;min-height:0;cursor:pointer;
+    box-shadow:0 14px 32px rgba(36,32,25,0.10);
+    opacity:0;transform:translateY(22px) scale(.985);
+    transition:opacity .8s cubic-bezier(.22,.61,.36,1),transform .8s cubic-bezier(.22,.61,.36,1);
   }
-  .bento img:hover{transform:scale(1.035);}
-  .bento .b-feat{grid-column:span 2;}
-  @media (max-width:640px){
-    .bento{grid-template-columns:repeat(2,1fr);}
+  .ambience.in .b-tile{opacity:1;transform:none;}
+  .ambience.in .b-tile:nth-child(2){transition-delay:.06s;}
+  .ambience.in .b-tile:nth-child(3){transition-delay:.12s;}
+  .ambience.in .b-tile:nth-child(4){transition-delay:.18s;}
+  .ambience.in .b-tile:nth-child(5){transition-delay:.24s;}
+  .ambience.in .b-tile:nth-child(6){transition-delay:.30s;}
+  .ambience.in .b-tile:nth-child(7){transition-delay:.36s;}
+  .ambience.in .b-tile:nth-child(8){transition-delay:.42s;}
+  .ambience.in .b-tile:nth-child(9){transition-delay:.48s;}
+  .b-tile::after{
+    content:'';position:absolute;inset:0;border-radius:12px;pointer-events:none;
+    box-shadow:inset 0 0 0 1px rgba(248,242,228,0.22);
+  }
+  .b-tile img{
+    width:100%;height:100%;object-fit:cover;
+    transition:transform .9s cubic-bezier(.22,.61,.36,1);
+  }
+  .b-tile:hover img{transform:scale(1.06);}
+  .b-tile figcaption{
+    position:absolute;left:0;right:0;bottom:0;padding:32px 13px 11px;
+    background:linear-gradient(180deg,rgba(20,17,12,0) 0%,rgba(20,17,12,0.68) 68%);
+    color:rgba(248,242,228,0.95);
+    font-size:9px;font-weight:700;letter-spacing:1.8px;text-transform:uppercase;
+    opacity:0;transform:translateY(8px);transition:opacity .4s ease,transform .4s ease;
+  }
+  .b-tile figcaption::before{
+    content:'';display:block;width:16px;height:2px;border-radius:2px;
+    background:var(--gold);margin-bottom:7px;
+  }
+  .b-tile:hover figcaption{opacity:1;transform:none;}
+  .b1 figcaption{font-size:10px;padding:40px 16px 14px;}
+
+  .b-note{
+    display:flex;flex-direction:column;align-items:center;justify-content:center;gap:9px;
+    text-align:center;padding:14px 12px;text-decoration:none;color:var(--ink);
+    background:linear-gradient(160deg,#fff 0%,var(--cream-deep) 100%);
+    border:1px solid var(--gold-line);transition:border-color .3s ease;
+  }
+  .b-note::after{box-shadow:none;}
+  .b-note-label{font-size:8.5px;font-weight:700;letter-spacing:2.4px;text-transform:uppercase;color:var(--gold-deep);}
+  .b-note-text{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:16px;line-height:1.35;}
+  .b-note-cta{
+    display:inline-flex;align-items:center;gap:4px;transition:gap .3s ease;
+    font-size:9.5px;font-weight:700;letter-spacing:1.6px;text-transform:uppercase;color:var(--gold-deep);
+  }
+  .b-note-cta .msi{font-size:14px;}
+  .b-note:hover{border-color:var(--gold);}
+  .b-note:hover .b-note-cta{gap:9px;}
+
+  .b1{grid-area:1/1/8/6;}   .b8{grid-area:8/1/12/6;}
+  .b2{grid-area:1/6/4/10;}  .b4{grid-area:1/10/5/13;}
+  .b3{grid-area:4/6/9/10;}  .b5{grid-area:5/10/9/13;}
+  .b6{grid-area:9/6/12/9;}  .b7{grid-area:9/9/12/11;} .b9{grid-area:9/11/12/13;}
+
+  @media (max-width:899px){
+    .bento{grid-template-columns:repeat(6,1fr);grid-template-rows:repeat(13,1fr);aspect-ratio:6/13;gap:10px;}
+    .b1{grid-area:1/1/6/5;}  .b8{grid-area:1/5/3/7;}  .b3{grid-area:3/5/6/7;}
+    .b4{grid-area:6/1/9/3;}  .b5{grid-area:6/3/9/5;}  .b6{grid-area:6/5/9/7;}
+    .b7{grid-area:9/1/12/3;} .b2{grid-area:9/3/12/7;} .b9{grid-area:12/1/14/7;}
+    .b-note{flex-direction:row;gap:20px;}
+    .b-note-text{font-size:21px;}
+    .b-note-label,.b-note-cta{font-size:10.5px;}
+    .b-note-cta .msi{font-size:16px;}
+  }
+  @media (max-width:600px){
+    .bento{grid-template-columns:repeat(6,1fr);grid-template-rows:repeat(27,1fr);aspect-ratio:2/9;gap:8px;}
+    .b1{grid-area:1/1/8/7;}   .b2{grid-area:8/1/12/7;}
+    .b3{grid-area:12/1/16/4;} .b4{grid-area:12/4/16/7;}
+    .b5{grid-area:16/1/20/4;} .b6{grid-area:16/4/20/7;}
+    .b8{grid-area:20/1/24/7;} .b7{grid-area:24/1/28/4;} .b9{grid-area:24/4/28/7;}
+    .b-note{flex-direction:column;gap:8px;}
+    .b-note-text{font-size:14.5px;}
+    .ambience-sub{font-size:15px;}
+  }
+  @media (hover:none){
+    .b-tile figcaption{opacity:1;transform:none;}
+  }
+  @media (prefers-reduced-motion:reduce){
+    .b-tile{opacity:1;transform:none;transition:none;}
+    .b-tile:hover img{transform:none;}
   }
 
   /* ---------- Rooms ---------- */
@@ -463,16 +546,46 @@
   <div class="ambience-head">
     <div class="section-label">De Seconde</div>
     <h2 class="section-title">Một góc yên giữa phố</h2>
+    <p class="ambience-sub">Nắng sớm qua ban công, chút cây xanh và những khoảng lặng — nhịp chậm giữ lại giữa lòng Tân Bình.</p>
   </div>
   <div class="bento">
-    <img class="b-feat" src="images/rooms/sun-06/sun-06-13.webp" alt="Sun room interior at De Seconde Home homestay near Tan Son Nhat Airport" onclick="openGallery('images/rooms/sun-06','sun-06','SUN',13)" loading="lazy" decoding="async">
-    <img src="images/rooms/sky-04/sky-04-06.webp" alt="Sky room with unique ceiling design at De Seconde Home Tan Binh" onclick="openGallery('images/rooms/sky-04','sky-04','SKY',12)" loading="lazy" decoding="async">
-    <img src="images/rooms/garden-05/garden-05-22.webp" alt="Green garden balcony of Garden room at De Seconde Home" onclick="openGallery('images/rooms/garden-05','garden-05','GARDEN',23)" loading="lazy" decoding="async">
-    <img src="images/decor/decor-01.webp" alt="De Seconde Home entrance in Tan Binh District Ho Chi Minh City" onclick="openGallery('images/decor','decor','KHÔNG GIAN',4)" loading="lazy" decoding="async">
-    <img src="images/rooms/breeze-02/breeze-02-07.webp" alt="Private bathroom of Breeze room at De Seconde Home" onclick="openGallery('images/rooms/breeze-02','breeze-02','PHÒNG COZY',15)" loading="lazy" decoding="async">
-    <img src="images/rooms/moon-03/moon-03-02.webp" alt="Moon room relaxation corner at De Seconde Home homestay" onclick="openGallery('images/rooms/moon-03','moon-03','MOON',17)" loading="lazy" decoding="async">
-    <img src="images/rooms/sun-06/sun-06-05.webp" alt="Lounge chair in Sun room at De Seconde Home" onclick="openGallery('images/rooms/sun-06','sun-06','SUN',13)" loading="lazy" decoding="async">
-    <img src="images/kitchen/kitchen-06.webp" alt="Shared kitchen and washer-dryer at De Seconde Home near Tan Son Nhat Airport" onclick="openGallery('images/kitchen','kitchen','BẾP CHUNG',7)" loading="lazy" decoding="async">
+    <figure class="b-tile b1" onclick="openGallery('images/rooms/sun-06','sun-06','SUN',13)">
+      <img src="images/rooms/sun-06/sun-06-13.webp" alt="Sun room interior at De Seconde Home homestay near Tan Son Nhat Airport" loading="lazy" decoding="async">
+      <figcaption>Sun · Phòng Cozy</figcaption>
+    </figure>
+    <figure class="b-tile b2" onclick="openGallery('images/rooms/sky-04','sky-04','SKY',12)">
+      <img src="images/rooms/sky-04/sky-04-06.webp" alt="Sky room with unique ceiling design at De Seconde Home Tan Binh" loading="lazy" decoding="async">
+      <figcaption>Sky · Trần thiết kế riêng</figcaption>
+    </figure>
+    <figure class="b-tile b3" onclick="openGallery('images/rooms/garden-05','garden-05','GARDEN',23)">
+      <img src="images/rooms/garden-05/garden-05-22.webp" alt="Green garden balcony of Garden room at De Seconde Home" loading="lazy" decoding="async">
+      <figcaption>Garden · Ban công xanh</figcaption>
+    </figure>
+    <figure class="b-tile b4" onclick="openGallery('images/rooms/moon-03','moon-03','MOON',17)">
+      <img src="images/rooms/moon-03/moon-03-02.webp" alt="Moon room relaxation corner at De Seconde Home homestay" loading="lazy" decoding="async">
+      <figcaption>Moon · Góc thư giãn</figcaption>
+    </figure>
+    <figure class="b-tile b5" onclick="openGallery('images/rooms/breeze-02','breeze-02','PHÒNG COZY',15)">
+      <img src="images/rooms/breeze-02/breeze-02-07.webp" alt="Private bathroom of Breeze room at De Seconde Home" loading="lazy" decoding="async">
+      <figcaption>Breeze · Phòng tắm riêng</figcaption>
+    </figure>
+    <figure class="b-tile b6" onclick="openGallery('images/decor','decor','KHÔNG GIAN',4)">
+      <img src="images/decor/decor-01.webp" alt="De Seconde Home entrance in Tan Binh District Ho Chi Minh City" loading="lazy" decoding="async">
+      <figcaption>Không gian chung · Lối vào</figcaption>
+    </figure>
+    <figure class="b-tile b7" onclick="openGallery('images/rooms/sun-06','sun-06','SUN',13)">
+      <img src="images/rooms/sun-06/sun-06-05.webp" alt="Lounge chair in Sun room at De Seconde Home" loading="lazy" decoding="async">
+      <figcaption>Sun · Góc nghỉ chân</figcaption>
+    </figure>
+    <figure class="b-tile b8" onclick="openGallery('images/kitchen','kitchen','BẾP CHUNG',7)">
+      <img src="images/kitchen/kitchen-06.webp" alt="Shared kitchen and washer-dryer at De Seconde Home near Tan Son Nhat Airport" loading="lazy" decoding="async">
+      <figcaption>Bếp chung · Máy giặt sấy</figcaption>
+    </figure>
+    <a class="b-tile b-note b9" href="#room-showcase">
+      <span class="b-note-label">6 phòng</span>
+      <span class="b-note-text">Mỗi phòng<br>một câu chuyện</span>
+      <span class="b-note-cta">Xem phòng <span class="msi">arrow_forward</span></span>
+    </a>
   </div>
 </div>
 
