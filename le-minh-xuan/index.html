@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script>document.documentElement.classList.add("js")</script>
 <title>De Seconde Home · Lê Minh Xuân | Homestay Tân Bình gần sân bay Tân Sơn Nhất</title>
 <meta name="description" content="Cơ sở mới của De Seconde Home tại 140/12 Lê Minh Xuân, P. Tân Sơn Nhất (khu Tân Bình), gần sân bay Tân Sơn Nhất. 7 phòng riêng tư, sắp mở cửa. Nhắn Zalo 0933 267 297 để giữ chỗ.">
 <meta name="robots" content="index, follow">
@@ -93,12 +94,18 @@
         </nav>
       </div>
 
+      <nav class="loc-switch" aria-label="Chọn cơ sở">
+        <a class="ls-back" href="/#chon-co-so"><span class="msi" aria-hidden="true">arrow_back</span>Tất cả cơ sở</a>
+        <div class="ls-seg"><a href="/truong-hoang-thanh/">Trương Hoàng Thanh</a><a href="/le-minh-xuan/" aria-current="page"><span class="msi" aria-hidden="true">location_on</span>Lê Minh Xuân<small>Sắp mở</small></a></div>
+      </nav>
+
       <div class="hero-main">
         <h1 class="hero-h1">
-          <span class="h1-row">Lê Minh Xuân <span class="h1-tag">De Seconde Home · Cơ sở mới · Gần sân bay TSN</span></span>
-          <span class="h1-row"><span class="h1-pill"><img src="/images/rooms/garden/garden-05.webp" alt="" data-nofade></span>sắp mở cửa</span>
+          <span class="h1-tag">De Seconde Home · Cơ sở mới · Gần sân bay</span>
+          <span class="h1-row">Lê Minh Xuân</span>
+          <span class="h1-row"><span class="h1-pill is-mark"><img src="/images/logo-mark.webp" alt="" width="84" height="78" data-nofade></span>sắp mở cửa</span>
         </h1>
-        <p class="hero-lead">Cơ sở thứ hai của De Seconde Home tại 140/12 Lê Minh Xuân, P. Tân Sơn Nhất, nằm ở khu Tân Bình, gần sân bay Tân Sơn Nhất. 7 phòng riêng tư, cùng tinh thần nhẹ nhàng, nhịp chậm.</p>
+        <p class="hero-lead">Cơ sở thứ hai của De Seconde Home, ở 140/12 Lê Minh Xuân, phường Tân Sơn Nhất (quận Tân Bình cũ), gần sân bay. 7 phòng riêng tư, đang nhận giữ chỗ trước qua Zalo.</p>
         <div class="hero-ctas">
           <a class="cta-main" href="https://zalo.me/0933267297" target="_blank" rel="noopener">
             <span class="cta-label">Giữ chỗ · Lê Minh Xuân</span><span class="cta-ic"><span class="msi">arrow_forward</span></span>
@@ -109,9 +116,9 @@
 
       <div class="hero-bottom">
         <div class="socials">
-          <a class="social-pill" href="https://www.instagram.com/deseconde497/" target="_blank" rel="noopener"><span class="msi">keyboard_double_arrow_up</span><span>Instagram</span></a>
-          <a class="social-pill" href="https://www.tiktok.com/@de.seconde" target="_blank" rel="noopener"><span class="msi">keyboard_double_arrow_up</span><span>TikTok</span></a>
-          <a class="social-pill" href="https://www.facebook.com/deseconde.home/" target="_blank" rel="noopener"><span class="msi">keyboard_double_arrow_up</span><span>Facebook</span></a>
+          <a class="social-pill" href="https://www.instagram.com/deseconde497/" target="_blank" rel="noopener" aria-label="Instagram (mở tab mới)"><span class="msi" aria-hidden="true">keyboard_double_arrow_up</span><span aria-hidden="true">Instagram</span></a>
+          <a class="social-pill" href="https://www.tiktok.com/@de.seconde" target="_blank" rel="noopener" aria-label="TikTok (mở tab mới)"><span class="msi" aria-hidden="true">keyboard_double_arrow_up</span><span aria-hidden="true">TikTok</span></a>
+          <a class="social-pill" href="https://www.facebook.com/deseconde.home/" target="_blank" rel="noopener" aria-label="Facebook (mở tab mới)"><span class="msi" aria-hidden="true">keyboard_double_arrow_up</span><span aria-hidden="true">Facebook</span></a>
         </div>
         <a class="scroll-badge" href="#gioi-thieu" aria-label="Cuộn xuống">
           <svg viewBox="0 0 96 96" aria-hidden="true">
@@ -136,6 +143,13 @@
   </div>
 </header>
 
+<!-- Thanh cơ sở: hiện khi đã cuộn qua hero, để khách luôn biết đang xem cơ sở nào -->
+<nav class="locbar" id="locbar" aria-label="Cơ sở đang xem">
+  <a class="locbar-back" href="/#chon-co-so" aria-label="Tất cả cơ sở"><span class="msi" aria-hidden="true">arrow_back</span><span>Tất cả cơ sở</span></a>
+  <div class="locbar-name"><span class="msi" aria-hidden="true">location_on</span><span><small>Cơ sở </small><b>Lê Minh Xuân</b></span></div>
+  <a class="locbar-cta" href="https://zalo.me/0933267297" target="_blank" rel="noopener" aria-label="Giữ chỗ qua Zalo, cơ sở Lê Minh Xuân">Giữ chỗ<span class="locbar-more"> qua Zalo</span><span class="msi" aria-hidden="true">arrow_forward</span></a>
+</nav>
+
 <main class="stack">
 
 <div class="marquee" aria-hidden="true">
@@ -148,9 +162,9 @@
 <section class="panel intro reveal" id="gioi-thieu">
   <div class="intro-text">
     <span class="kicker">Giới thiệu</span>
-    <h2 class="h2">Homestay mới <span class="ipill"><img src="/images/rooms/moon/moon-02.webp" alt="" loading="lazy" data-nofade></span> ở khu Tân Bình</h2>
-    <p class="intro-lead">De Seconde Home · Lê Minh Xuân là cơ sở thứ hai của De Seconde Home, nằm ở khu Tân Bình, gần sân bay Tân Sơn Nhất và gần cơ sở Trương Hoàng Thanh đang hoạt động.</p>
-    <p>Cơ sở có 7 phòng riêng tư và hiện đang chuẩn bị mở cửa. Ảnh phòng, giá và chi tiết từng phòng sẽ được cập nhật tại đây. Bạn có thể nhắn Zalo ngay để được báo khi mở cửa hoặc giữ chỗ trước.</p>
+    <h2 class="h2">Homestay mới <span class="ipill is-mark"><img src="/images/logo-mark.webp" alt="" width="84" height="78" loading="lazy" data-nofade></span> ở khu Tân Bình</h2>
+    <p class="intro-lead">Cơ sở Lê Minh Xuân ở quận Tân Bình, gần sân bay Tân Sơn Nhất và cách cơ sở Trương Hoàng Thanh khoảng 2 km.</p>
+    <p>Cơ sở có 7 phòng riêng tư và đang chuẩn bị mở cửa, nên chưa có ảnh phòng và giá. Nhắn Zalo để giữ chỗ trước hoặc để được báo ngay khi mở.</p>
   </div>
   <figure class="intro-photo loc-media is-soon">
     <svg class="loc-arcs" viewBox="0 0 500 400" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><circle cx="-40" cy="300" r="170"/><circle cx="440" cy="-80" r="170"/><circle cx="560" cy="300" r="170"/><circle cx="250" cy="620" r="290"/></svg>
@@ -189,9 +203,9 @@
         <span>Quét để chat Zalo</span>
       </div>
       <div class="socials">
-        <a class="social-pill" href="https://www.facebook.com/deseconde.home/" target="_blank" rel="noopener"><span class="msi">keyboard_double_arrow_up</span><span>Facebook</span></a>
-        <a class="social-pill" href="https://www.instagram.com/deseconde497/" target="_blank" rel="noopener"><span class="msi">keyboard_double_arrow_up</span><span>Instagram</span></a>
-        <a class="social-pill" href="https://www.tiktok.com/@de.seconde" target="_blank" rel="noopener"><span class="msi">keyboard_double_arrow_up</span><span>TikTok</span></a>
+        <a class="social-pill" href="https://www.facebook.com/deseconde.home/" target="_blank" rel="noopener" aria-label="Facebook (mở tab mới)"><span class="msi" aria-hidden="true">keyboard_double_arrow_up</span><span aria-hidden="true">Facebook</span></a>
+        <a class="social-pill" href="https://www.instagram.com/deseconde497/" target="_blank" rel="noopener" aria-label="Instagram (mở tab mới)"><span class="msi" aria-hidden="true">keyboard_double_arrow_up</span><span aria-hidden="true">Instagram</span></a>
+        <a class="social-pill" href="https://www.tiktok.com/@de.seconde" target="_blank" rel="noopener" aria-label="TikTok (mở tab mới)"><span class="msi" aria-hidden="true">keyboard_double_arrow_up</span><span aria-hidden="true">TikTok</span></a>
       </div>
     </div>
   </div>
@@ -205,7 +219,7 @@
   <div>
     <span class="kicker">Cơ sở khác</span>
     <h2 class="h2" id="other-title">Cần phòng ngay? Cơ sở Trương Hoàng Thanh đang đón khách</h2>
-    <p>De Seconde Home · Trương Hoàng Thanh, 32/27 Trương Hoàng Thanh, P. Bảy Hiền (khu Tân Bình cũ). 6 phòng, ban công vườn xanh, tự nhận phòng 24/7.</p>
+    <p>32/27 Trương Hoàng Thanh, phường Bảy Hiền, cách đây khoảng 2 km. 6 phòng, có phòng ban công riêng, tự nhận phòng 24/7.</p>
   </div>
   <a class="pill-btn" href="/truong-hoang-thanh/">Xem cơ sở Trương Hoàng Thanh <span class="msi">arrow_forward</span></a>
 </section>
@@ -216,7 +230,7 @@
   <div class="foot-top">
     <div class="foot-brand">
       <img src="/images/logo-mark.webp" alt="De Seconde Home logo" width="40" height="37" loading="lazy" data-nofade>
-      <div>De Seconde Home<small>Homestay · Airbnb · Vacation Rentals</small></div>
+      <div>De Seconde Home<small>Homestay phòng riêng gần sân bay Tân Sơn Nhất</small></div>
     </div>
     <nav class="foot-nav" aria-label="Liên kết cuối trang">
       <a href="/">Trang chủ</a>

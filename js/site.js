@@ -28,11 +28,13 @@ function openGallery(folder, key, title, count, start){
   galleryOpener = document.activeElement;
   renderGallery();
   document.getElementById('lightbox').classList.add('open');
+  document.body.classList.add('lb-open');
   document.querySelector('.lightbox-close').focus();
 }
 
 function closeGallery(){
   document.getElementById('lightbox').classList.remove('open');
+  document.body.classList.remove('lb-open');
   if (galleryOpener && galleryOpener.focus) galleryOpener.focus();
 }
 
@@ -53,6 +55,13 @@ function navGallery(dir){
     if (e.key === 'Escape') closeGallery();
     if (e.key === 'ArrowLeft') navGallery(-1);
     if (e.key === 'ArrowRight') navGallery(1);
+    // Giữ Tab xoay vòng trong lightbox
+    if (e.key === 'Tab'){
+      var f = lb.querySelectorAll('button'), first = f[0], last = f[f.length - 1];
+      if (e.shiftKey && document.activeElement === first){ e.preventDefault(); last.focus(); }
+      else if (!e.shiftKey && document.activeElement === last){ e.preventDefault(); first.focus(); }
+      else if (!lb.contains(document.activeElement)){ e.preventDefault(); first.focus(); }
+    }
   });
 
   // Vuốt trong lightbox
@@ -131,5 +140,29 @@ function navGallery(dir){
       img.addEventListener('load', function(){ img.classList.add('loaded'); });
       img.addEventListener('error', function(){ img.classList.add('loaded'); });
     }
+  });
+})();
+
+// ---- Trang cơ sở: thanh "đang xem cơ sở" hiện khi đã cuộn qua hero ----
+(function(){
+  var bar = document.getElementById('locbar'), hero = document.querySelector('.hero');
+  if (!bar || !hero || !('IntersectionObserver' in window)) return;
+  new IntersectionObserver(function(entries){
+    bar.classList.toggle('is-on', !entries[0].isIntersecting);
+  }).observe(hero);
+})();
+
+// ---- Trang chủ: chọn cơ sở để xem trên bản đồ ----
+(function(){
+  var frame = document.getElementById('map-frame');
+  var picks = document.querySelectorAll('.loc-pick');
+  if (!frame || !picks.length) return;
+  picks.forEach(function(btn){
+    btn.addEventListener('click', function(){
+      if (btn.getAttribute('aria-pressed') === 'true') return;
+      picks.forEach(function(b){ b.setAttribute('aria-pressed', b === btn ? 'true' : 'false'); });
+      frame.src = btn.getAttribute('data-map');
+      frame.title = 'Bản đồ ' + btn.getAttribute('data-name');
+    });
   });
 })();
