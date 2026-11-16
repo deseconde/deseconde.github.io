@@ -159,6 +159,31 @@ button{font:inherit;color:inherit;}
 .fact b{display:block;font-size:15px;font-weight:700;line-height:1.25;}
 .fact span:not(.msi):not(.ic){display:block;font-size:13px;color:var(--ink-soft);margin-top:2px;line-height:1.35;}
 
+/* Cozy: chuyển giữa Breeze·Sky·Sun và Leaf */
+.variants{display:flex;align-items:center;flex-wrap:wrap;gap:12px 20px;}
+.variants-label{display:inline-flex;align-items:center;gap:8px;font-size:14px;font-weight:700;color:var(--ink-soft);}
+.variants-label .msi{font-size:18px;color:var(--accent-deep);}
+.seg{display:flex;gap:4px;padding:4px;border-radius:999px;background:var(--mist);}
+.seg a{
+  display:flex;align-items:center;gap:10px;padding:4px 18px 4px 4px;border-radius:999px;text-decoration:none;
+  color:var(--ink-soft);transition:background .25s,color .25s,box-shadow .25s;min-width:0;
+}
+.seg img{flex:0 0 auto;width:40px;height:40px;border-radius:50%;object-fit:cover;opacity:.7;transition:opacity .25s;}
+.seg b{display:block;font-size:14.5px;font-weight:700;line-height:1.2;white-space:nowrap;}
+.seg small{display:block;font-size:12px;font-weight:600;opacity:.75;white-space:nowrap;}
+.seg a:hover{color:var(--ink);}
+.seg a:hover img{opacity:1;}
+.seg a[aria-current="page"]{background:#fff;color:var(--ink);box-shadow:0 6px 16px rgba(38,52,36,0.12);}
+.seg a[aria-current="page"] img{opacity:1;}
+@media (max-width:560px){
+  .variants{flex-direction:column;align-items:stretch;}
+  .seg{border-radius:22px;}
+  .seg a{flex:1 1 0;padding-right:10px;gap:8px;border-radius:18px;}
+  .seg img{width:34px;height:34px;}
+  .seg b{font-size:13.5px;white-space:normal;}
+  .seg small{white-space:normal;}
+}
+
 @media (max-width:899px){
   .r-text{grid-template-columns:minmax(0,1fr);}
   .r-ctas{justify-content:flex-start;}
@@ -346,7 +371,7 @@ button{font:inherit;color:inherit;}
 @media (max-width:520px){ .qr-card img{width:96px;height:96px;} }
 
 /* ---------- Other rooms ---------- */
-.others{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(10px,1.4vw,20px);}
+.others{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:clamp(10px,1.4vw,20px);}
 .room{
   position:relative;display:block;border-radius:24px;overflow:hidden;aspect-ratio:3/4;color:#fff;isolation:isolate;
   background:var(--forest);text-decoration:none;
@@ -364,10 +389,10 @@ button{font:inherit;color:inherit;}
 .room.common img{object-position:center 62%;}
 @media (max-width:760px){
   .others{grid-template-columns:repeat(2,minmax(0,1fr));}
-  .room.common{grid-column:1/-1;aspect-ratio:16/10;}
   .room-top .gchip.count{display:none;}
   .room-body{left:12px;right:12px;bottom:12px;}
   .room .round-btn{width:38px;height:38px;}
+  .room-sub{display:none;}
   .room .round-btn .msi{font-size:18px;}
 }
 
