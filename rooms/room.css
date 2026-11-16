@@ -235,8 +235,10 @@ button{font:inherit;color:inherit;}
   border:none;text-align:left;font:inherit;color:#fff;
 }
 .slide-all::after{display:none;}
-.slide-all .mini-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:8px;}
-.slide-all .mini-grid img{position:static;width:100%;aspect-ratio:1;object-fit:cover;border-radius:14px;z-index:auto;}
+.slide-all .mini-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;}
+.slide-all .mini-grid > span{position:relative;display:block;aspect-ratio:1;border-radius:14px;overflow:hidden;background:rgba(255,255,255,0.15);}
+.slide-all .mini-grid img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:auto;transform:none;}
+.slide-all:hover .mini-grid img{transform:none;}
 .slide-all b{display:block;font-size:clamp(28px,3vw,40px);font-weight:600;letter-spacing:-.03em;line-height:1.05;}
 .slide-all small{display:block;font-size:14px;font-weight:700;opacity:.85;margin-top:8px;}
 .slide-all .row{display:flex;align-items:flex-end;justify-content:space-between;gap:12px;}

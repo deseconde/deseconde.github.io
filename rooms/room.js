@@ -251,9 +251,10 @@
 
     var all = document.createElement('a');
     all.className = 'slide slide-all'; all.href = '#thu-vien';
-    var rest = photos.filter(function(p){ return !p.hero; }).slice(0, 4);
+    // Luôn đủ 4 ảnh nhỏ: ưu tiên ảnh chưa có trong dải, thiếu thì lấy thêm ảnh cuối dải
+    var rest = photos.filter(function(p){ return !p.hero; }).concat(heroes.slice().reverse()).slice(0, 4);
     var mini = '<span class="mini-grid" aria-hidden="true">' + rest.map(function(p){
-      return '<img src="' + p.src + '" alt="" loading="lazy" decoding="async">';
+      return '<span><img src="' + p.src + '" alt="" loading="lazy" decoding="async"></span>';
     }).join('') + '</span>';
     all.innerHTML = mini + '<span class="row"><span><b>Xem tất cả<br>' + photos.length + ' ảnh</b><small>Lọc theo góc phòng</small></span>' +
       '<span class="round-btn"><span class="msi">arrow_forward</span></span></span>';
@@ -268,7 +269,7 @@
       var w = Math.max(0.12, reel.clientWidth / reel.scrollWidth);
       rThumb.style.width = (w * 100) + '%';
       rThumb.style.transform = 'translateX(' + (ratio * (1 / w - 1) * 100) + '%)';
-      var k = Math.min(total - 1, Math.round(reel.scrollLeft / step()));
+      var k = reel.scrollLeft > max - 4 ? total - 1 : Math.min(total - 1, Math.round(reel.scrollLeft / step()));
       rCount.innerHTML = pad(k + 1) + '<small>/' + pad(total) + '</small>';
       rPrev.disabled = reel.scrollLeft < 4;
       rNext.disabled = reel.scrollLeft > max - 4;
